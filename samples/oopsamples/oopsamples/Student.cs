@@ -13,9 +13,10 @@ namespace oopsamples
         public string PhoneNumber { get; set; }
         private string[] CourseName;
         private double[] Grade;
-
+        private Random rand;
         public Student(string InputName, string InputUninumber)
         {
+            rand = new Random();
             Grade = new double[5];
             CourseName = new string[]{ "MATH","COMPUTER","CHEMISTRY","FARSI","ENGLISH"};
             name = InputName;
@@ -23,8 +24,7 @@ namespace oopsamples
             InitialGrade();
         }
         private void InitialGrade()
-        {
-            Random rand = new Random();
+        {           
             for (int i = 0; i < Grade.Length; i++)
             {
                 Grade[i] = rand.Next(0, 20);
@@ -49,7 +49,10 @@ namespace oopsamples
             for (int i = 0; i < CourseName.Length; i++)
             {
                 if (course == CourseName[i])
+                {
                     Grade[i] = g;
+                    break;
+                }
             }
         }
         public double getGrade(string course)
@@ -69,7 +72,7 @@ namespace oopsamples
             {
                 avg += Grade[i];
             }
-            avg /= Grade.Length;
+            avg /= Grade.Length; // avg = avg / Grade.Length; 
             return avg;
         }
 
