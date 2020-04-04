@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D48562BB-522D-4CE8-A6B7-91DC32299267}</ProjectGuid>
+    <ProjectGuid>{9E1C2CD8-74CC-4183-BD27-A0B94649A261}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>oopsamples</RootNamespace>
-    <AssemblyName>oopsamples</AssemblyName>
+    <RootNamespace>StringSamples</RootNamespace>
+    <AssemblyName>StringSamples</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,10 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="car.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Student.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

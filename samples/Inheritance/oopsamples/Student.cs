@@ -6,25 +6,33 @@ using System.Threading.Tasks;
 
 namespace oopsamples
 {
-    class Student
+    class Student : Person
     {
-        public string name { get; }
         public string UniNumber { get; }
-        public string PhoneNumber { get; set; }
         private string[] CourseName;
         private double[] Grade;
-
-        public Student(string InputName, string InputUninumber)
+        private Random rand;
+        public Student()
+            : base("Ali", "29384723947", "CS")
         {
+            rand = new Random();
             Grade = new double[5];
-            CourseName = new string[]{ "MATH","COMPUTER","CHEMISTRY","FARSI","ENGLISH"};
-            name = InputName;
+            CourseName = new string[] { "MATH", "COMPUTER", "CHEMISTRY", "FARSI", "ENGLISH" };
+            UniNumber = "23984623";
+            InitialGrade();
+        }
+        public Student(string InputName, string phone, string major, string InputUninumber) 
+            : base(InputName, phone, major)
+        {
+            rand = new Random();
+            Grade = new double[5];
+            CourseName = new string[] { "MATH", "COMPUTER", "CHEMISTRY", "FARSI", "ENGLISH" };
+            //name = InputName;
             UniNumber = InputUninumber;
             InitialGrade();
         }
         private void InitialGrade()
         {
-            Random rand = new Random();
             for (int i = 0; i < Grade.Length; i++)
             {
                 Grade[i] = rand.Next(0, 20);
@@ -43,13 +51,16 @@ namespace oopsamples
             }
             Console.WriteLine($">> Average : {CalAverage()}");
         }
-        public void setGrade(string course,double g)
+        public void setGrade(string course, double g)
         {
             course = course.ToUpper();
             for (int i = 0; i < CourseName.Length; i++)
             {
                 if (course == CourseName[i])
+                {
                     Grade[i] = g;
+                    break;
+                }
             }
         }
         public double getGrade(string course)
@@ -69,9 +80,8 @@ namespace oopsamples
             {
                 avg += Grade[i];
             }
-            avg /= Grade.Length;
+            avg /= Grade.Length; // avg = avg / Grade.Length; 
             return avg;
         }
-
     }
 }
