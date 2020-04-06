@@ -20,18 +20,27 @@ namespace ExceptionHandling
                 // try to do some tasks
                 //Console.Write("Enter name : ");
                 //name = Console.ReadLine();
-                //Console.Write("Enter phone : ");
-                //phone = Console.ReadLine();
+                Console.Write("Enter phone : ");
+                phone = Console.ReadLine();
+                long.Parse(phone);
+                if (phone.Length != 11)
+                {
+                    throw new Exception("The Phone number must be 11 char.");
+                }
                 Console.Write("Enter age : ");
-                age = int.Parse(Console.ReadLine());
+                age = int.Parse(Console.ReadLine());                
             }
-            catch (OverflowException)
+            catch (OverflowException e)
             {
-                Console.WriteLine("OverflowException");
+                Console.WriteLine($"{e.Message}");
             }
-            catch (FormatException)
+            catch (FormatException e)
             {
-                Console.WriteLine("FormatException");
+                Console.WriteLine($"{e.Message}");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"{e.Message}");
             }
             finally
             {
