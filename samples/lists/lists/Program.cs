@@ -11,22 +11,34 @@ namespace lists
         static void Main(string[] args)
         {
             List<int> a = new List<int>();
+            Random rand = new Random();
 
-            Console.Write("Number : ");
-
-            int length = int.Parse(Console.ReadLine());
+            int length = 20;
 
             for (int i = 0; i < length; i++)
             {
-                a.Add(int.Parse(Console.ReadLine()));
+                a.Add(rand.Next(1,10));
+                Console.WriteLine($"[{i}] : {a[i]}");
             }
             Console.WriteLine("+++++++++++++++++++++++++");
-            a.Add(10);
-
+            Console.WriteLine($"IndexOf({1}) : {a.IndexOf(1)}");
+            Console.WriteLine($"Count : {a.Count}");
+            Console.WriteLine($"Contains({1}) : {a.Contains(1)}");
+            Console.WriteLine($"Contains({100}) : {a.Contains(100)}");
+            Console.WriteLine("+++++++++++++++++++++++++");
+            Console.WriteLine($"a.Insert(1, 100)");
+            a.Insert(3, 100);
+            int j = 0;
             foreach (var item in a)
             {
-                Console.WriteLine(item);
+                Console.WriteLine($"[{j}] : {item}");
+                j++;
             }
+            Console.WriteLine("+++++++++++++++++++++++++");
+            Console.WriteLine($"IndexOf({1}) : {a.IndexOf(1)}");
+            Console.WriteLine($"Count : {a.Count}");
+            Console.WriteLine($"Contains({1}) : {a.Contains(1)}");
+            Console.WriteLine($"Contains({100}) : {a.Contains(100)}");
 
             Console.ReadLine();
         }
