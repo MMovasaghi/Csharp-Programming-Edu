@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ExceptionHandling.Exceptions;
 
 namespace ExceptionHandling
 {
@@ -25,22 +26,18 @@ namespace ExceptionHandling
                 long.Parse(phone);
                 if (phone.Length != 11)
                 {
-                    throw new Exception("The Phone number must be 11 char.");
+                    throw new PhoneException("\"The phone number must have 11 number.\"");
                 }
                 Console.Write("Enter age : ");
                 age = int.Parse(Console.ReadLine());                
             }
-            catch (OverflowException e)
+            catch (PhoneException e)
             {
-                Console.WriteLine($"{e.Message}");
-            }
-            catch (FormatException e)
-            {
-                Console.WriteLine($"{e.Message}");
+                Console.WriteLine($"PhoneException: {e.Message}");
             }
             catch (Exception e)
             {
-                Console.WriteLine($"{e.Message}");
+                Console.WriteLine($"Exception: {e.Message}");
             }
             finally
             {
